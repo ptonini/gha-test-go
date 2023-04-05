@@ -1,4 +1,4 @@
-name: 'go-tests'
+name: 'test-go'
 description: ''
 inputs:
   go_version:
@@ -12,7 +12,7 @@ inputs:
     description: 'Coverage profile file in Go format'
     required: true
   test_report:
-    description: 'Coverage test results in json'
+    description: 'Test results report'
     required: true
   
 runs:
