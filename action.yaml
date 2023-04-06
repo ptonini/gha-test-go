@@ -3,8 +3,7 @@ description: ''
 inputs:
   go_version:
     description: ''
-    required: false
-    default: '^1.18'
+    required: true
   reports_folder:
     description: ''
     required: true
