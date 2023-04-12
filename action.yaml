@@ -17,7 +17,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - uses: actions/setup-go@v3
+    - uses: actions/setup-go@v4
       with:
         go-version: ${{ inputs.go_version }}
     - name: Download module dependencies
