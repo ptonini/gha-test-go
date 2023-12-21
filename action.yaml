@@ -1,4 +1,4 @@
-name: 'test-go'
+name: test-go
 description: ''
 inputs:
   go_version:
@@ -8,21 +8,18 @@ inputs:
     description: ''
     required: true
   coverage_profile:
-    description: 'Coverage profile file in Go format'
+    description: ''
     required: true
   test_report:
-    description: 'Test results report'
+    description: ''
     required: true
-  
 runs:
-  using: 'composite'
+  using: composite
   steps:
     - uses: actions/setup-go@v4
       with:
         go-version: ${{ inputs.go_version }}
-    - name: Download module dependencies
-      run: go mod tidy
+    - run: go mod tidy
       shell: bash
-    - name: Run tests and generate coverage profile
-      run: go test ./... -v -race -covermode atomic -coverprofile ${{ inputs.reports_folder }}/${{ inputs.coverage_profile }} -json | tee ${{ inputs.reports_folder }}/${{ inputs.test_report }}
+    - run: go test ./... -v -race -covermode atomic -coverprofile ${{ inputs.reports_folder }}/${{ inputs.coverage_profile }} -json | tee ${{ inputs.reports_folder }}/${{ inputs.test_report }}
       shell: bash
